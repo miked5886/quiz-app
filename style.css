@@ -50,9 +50,13 @@ h3 {
   margin: 50px;
   padding: 0 30px;
   color: #fff;
+}
+
+.score-question ul{
+  padding:5px 10px;
   background-color: red;
-  border: solid black 2px;
-  border-radius: 20px;
+  border: solid 2px black;
+  border-radius: 15px;
 }
 
 li {
