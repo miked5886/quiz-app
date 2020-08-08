@@ -7,20 +7,21 @@
   <title>MUFC Quiz</title>
 </head>
 <body>
- 
+
   <header id = "main-header">
     <h1>Manchester United Fan Quiz</h1>
+    <div class="score-question"></div>
   </header>
   <main>
-    <div class = "quizDisplay">
-    <ul class = "score-question">
-      <li>Quiestion: <span class = "questionNumber">0</span></span></li>
-      <li>Score: <span class = "score">0</span></li>
-    </ul>
+    <div class = "quiz-display">
     <h2>Are you a true Man United fan?</h2>
-    <button type="button" class = "startButton">Start Quiz !</button>
+    <div class ="js-options"></div>
+    <button type="button" id="start-button" class="btn" >Start Quiz !</button>
+  </div>
   </main>
-</div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="store.js"></script>
+    <script src="index.js"></script>
 </body>
-</html>
+</html> 

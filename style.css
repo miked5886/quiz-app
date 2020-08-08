@@ -4,9 +4,16 @@
   box-sizing: border-box;
 }
 
+body {
+  background: url("/images/football-stadium.jpg") no-repeat center/cover;
+  height: 100vh;
+  width: 100vw;
+}
+
 header {
   text-align: center;
   margin: 50px auto;
+  
 }
 
 main {
@@ -15,7 +22,11 @@ main {
 
 h1 {
   font-size: 3rem;
+  color: #fff;
   margin: 30px;
+  background-color: red;
+  border-radius: 20px;
+  border: black solid 2px;
 }
 
 h2 {
@@ -27,43 +38,98 @@ h2 {
 h3 {
   text-align: center;
   font-size: 2rem;
-  padding: 25px;
+  padding: 15px;
 }
+
 
 .score-question {
   display: flex;
-  font-size: 20px;
-  justify-content: space-evenly;
+  font-size: 24px;
+  justify-content: center;
   list-style: none;
+  margin: 50px;
   padding: 0 30px;
+  color: #fff;
+  background-color: red;
+  border: solid black 2px;
+  border-radius: 20px;
 }
 
-.answers {
-  margin: auto;
+li {
   list-style: none;
 }
 
-.answers li {
-  font-size: 22px;
-  padding: 10px;
-}
- 
-
-.quizDisplay {
+.quiz-display {
   display: flex;
-  background-color: lightgray;
+  margin-top: 10px;
+  color: #fff;
+  background-color: black;
   width: 70%;
-  margin-top: 10%;
   padding: 20px;
   flex-direction: column;
-  border: solid darkgray 1px;
+  border: solid red 2px;
+  border-radius: 15px;
+  
 }
 
-.startButton, .submitButton {
+.js-options {
+  font-size: 20px;
+  margin-left:30%;
+  padding: 5px;
+}
+
+.btn  {
+  display: flex;
   padding: 10px 20px;
-  margin: 50px auto;
+  margin: 20px auto;
+  color: #fff;
+  background-color: red;
+
 }
 
+button:hover {
+  color: red;
+  background-color: #fff;
+}
 
+button:active {
+  color: #fff;
+  background-color: darkred;
+}
+
+.right-answer {
+  color: lime;
+}
+
+.wrong-answer {
+  color: rgb(233, 22, 22);
+}
+
+@media (min-width: 800px) {
+  .js-options{
+    margin-left: 40%;
+  }
+}
+@media (max-width: 500px) {
+  .quiz-display {
+    width: 70%;
+    padding: 10px;
+  }
+  h1 {
+    font-size: 2rem;
+    }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3{
+    font-size: 18px;
+  }
+  .js-options {
+    font-size: 16px;
+    margin-left:10%;
+    padding: 5px;
+  }
+
+  }
 
 
