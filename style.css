@@ -5,9 +5,8 @@
 }
 
 body {
-  background: url("./images/football-stadium.jpg") no-repeat center/cover;
-  height: 100vh;
-  width: 100vw;
+  background: url("/images/football-stadium.jpg") no-repeat center/cover;
+  height: auto;
 }
 
 header {
@@ -133,7 +132,12 @@ button:active {
     margin-left:10%;
     padding: 5px;
   }
+}
 
+@media (min-height: 500px) {
+  body{
+    height: 100vh;
   }
+}
 
 
