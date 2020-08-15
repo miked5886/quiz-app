@@ -19,7 +19,7 @@ function updateQuestionAndScore() {
 function updateChoices()
 {
   let question = STORE.questions[STORE.currentQuestion];
-  for(let i=0; i<question.options.length; i++)
+  for(let i = 0; i < question.options.length; i++)
   {
     $('.js-options').append(`
         <input type = "radio" name="options" id="option${i+1}" value= "${question.options[i]}" tabindex ="${i+1}"> 
@@ -45,21 +45,19 @@ function renderQuestion() {
   </div>`);
 $("main").html(questionHtml);
 updateChoices();
-$("#next-button").hide();
+$("#next-button").hide(); 
 }
 
 /* displays score and restart quiz button */
-function displayScore() {
-  let scoreHtml = $(
-    `<div class="quiz-display">
-      <form id="js-restart-quiz">
-              <h3>Your Score is: ${STORE.score}/${STORE.questions.length}</h3>
-              <button type="button" id="restart-button" class = "btn"> Restart Quiz </button>
-    </form>
-    </div>`);
-    STORE.currentQuestion = 0;
-    STORE.score = 0;
-  $("main").html(scoreHtml);
+function displayScore() { 
+  $("main").html(`<div class="quiz-display">
+  <form id="js-restart-quiz">
+          <h3>Your Score is: ${STORE.score}/${STORE.questions.length}</h3>
+          <button type="button" id="restart-button" class = "btn"> Restart Quiz </button>
+</form>
+</div>`);
+STORE.currentQuestion = 0;
+STORE.score = 0;
 }
 
 /* checks whether it reached the end of questions */
