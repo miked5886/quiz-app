@@ -56,8 +56,12 @@ function displayScore() {
           <button type="button" id="restart-button" class = "btn"> Restart Quiz </button>
 </form>
 </div>`);
-STORE.currentQuestion = 0;
-STORE.score = 0;
+ resetScore()
+}
+
+function resetScore() {
+  STORE.currentQuestion = 0;
+  STORE.score = 0; 
 }
 
 /* checks whether it reached the end of questions */
