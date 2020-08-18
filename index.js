@@ -5,14 +5,18 @@ function startQuiz() {
   }
   );
 }
+/* generates question and score template */
+function currentQuestionScoreHtml(){
+  return `<ul>
+      <li id="js-answered">Question: ${STORE.currentQuestion + 1}/${STORE.questions.length}</li>
+      <li id="js-score">Score: ${STORE.score}/${STORE.questions.length}</li>
+    </ul>`;
+}
 
 /* displays the current question number and players score */
 function updateQuestionAndScore() {
-  const html = $(`<ul>
-      <li id="js-answered">Question: ${STORE.currentQuestion + 1}/${STORE.questions.length}</li>
-      <li id="js-score">Score: ${STORE.score}/${STORE.questions.length}</li>
-    </ul>`);
-  $(".score-question").html(html);
+
+  $(".score-question").html(currentQuestionScoreHtml());
 }
 
 /* Displays the answer choices for the current question */
@@ -30,11 +34,10 @@ function updateChoices()
   
 }
 
-/*displays the question*/
-function renderQuestion() {
+/* generates question template */
+function generateQuestion(){
   let question = STORE.questions[STORE.currentQuestion];
-  updateQuestionAndScore();
-  const questionHtml = $(`
+  return `
   <div  class="quiz-display">
     <form id="js-questions">
        <h3> ${question.question}</h3>
@@ -42,28 +45,38 @@ function renderQuestion() {
           <button type = "submit" id="submit-button" class = "btn" tabindex="5">Submit</button>
           <button type = "button" id="next-button" class = "btn"  tabindex="6"> Next </button>
     </form>
-  </div>`);
-$("main").html(questionHtml);
+  </div>`;
+}
+
+/*displays the question*/
+function renderQuestion() {
+  
+  updateQuestionAndScore();
+$("main").html(generateQuestion());
 updateChoices();
 $("#next-button").hide(); 
 }
 
-/* displays score and restart quiz button */
-function displayScore() { 
-  $("main").html(`<div class="quiz-display">
+/* Generates HTML for score */
+function generateScoreHtml(){
+return `<div class="quiz-display">
   <form id="js-restart-quiz">
           <h3>Your Score is: ${STORE.score}/${STORE.questions.length}</h3>
           <button type="button" id="restart-button" class = "btn"> Restart Quiz </button>
 </form>
-</div>`);
- resetScore()
+</div>`;
 }
 
-function resetScore() {
+/* displays score and restart quiz button */
+function displayScore() { 
+  $("main").html(generateScoreHtml());
+  
   STORE.currentQuestion = 0;
   STORE.score = 0; 
 }
 
+
+  
 /* checks whether it reached the end of questions */
 function handleQuestions() {
   $('body').on('click','#next-button', (event) => {
